@@ -1,16 +1,22 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Destroyer : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public UnityEvent onhit;
+    private void OnCollisionEnter2D(Collision2D other)
     {
-        
-    }
+        GameObject otherObject = other.gameObject;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        if (otherObject.name.Contains("Stone"))
+        {
+            Destroy(otherObject);
+            onhit.Invoke();
+        }
+        else if (otherObject.name.Contains("Sign"))
+        {
+            Destroy(otherObject);
+            onhit.Invoke();
+        }
     }
 }

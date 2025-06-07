@@ -12,13 +12,13 @@ public class Movement : MonoBehaviour
     {
         body = GetComponent<Rigidbody2D>();
     }
-    
+
     void FixedUpdate()
     {
         //move the car
-       var moveAction = InputSystem.actions.FindAction("Move");
-       var moveValue = moveAction.ReadValue<Vector2>();
+        var moveAction = InputSystem.actions.FindAction("Move");
+        var moveValue = moveAction.ReadValue<Vector2>();
 
-       body.AddForce(Vector2.Scale(moveValue, speed));
+        body.AddForce(Vector2.Scale(moveValue, speed));
     }
 }
